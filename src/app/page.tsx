@@ -1,5 +1,3 @@
-import Image from "next/image";
-import Navbar from "./components/Navigation";
 import { HeroSection } from "./components/HeroSession";
 import ContactForm from "./components/ContactForm";
 

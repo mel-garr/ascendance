@@ -1,10 +1,23 @@
 "use client"
 
 import { useState } from "react"
-import { FaCar, FaPalette, FaBolt, FaCog } from "react-icons/fa"
+import { FaCar, FaPalette, FaCog } from "react-icons/fa" // Removed FaBolt
+
+type VehicleOptions = {
+  color: string
+  driveSystem: string
+  battery: string
+  windowType: boolean
+  interior: string
+  roof: boolean
+  glassType: string
+  dashcam: boolean
+  climate: string
+  aiAssist: string
+}
 
 export default function VehicleConfigurator() {
-  const [selectedOptions, setSelectedOptions] = useState({
+  const [selectedOptions, setSelectedOptions] = useState<VehicleOptions>({
     color: "Midnight Black",
     driveSystem: "1 Wheel Drive",
     battery: "5kWh",
@@ -17,7 +30,7 @@ export default function VehicleConfigurator() {
     aiAssist: "None",
   })
 
-  const updateOption = (key: string, value: any) => {
+  const updateOption = <K extends keyof VehicleOptions>(key: K, value: VehicleOptions[K]) => {
     setSelectedOptions((prev) => ({
       ...prev,
       [key]: value,
